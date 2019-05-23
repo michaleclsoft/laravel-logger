@@ -1,9 +1,9 @@
 <?php
 
-namespace michal\LaravelLogger\App\Listeners;
+namespace jeremykenedy\LaravelLogger\App\Listeners;
 
 use Illuminate\Auth\Events\Attempting;
-use michal\LaravelLogger\App\Http\Traits\ActivityLogger;
+use jeremykenedy\LaravelLogger\App\Http\Traits\ActivityLogger;
 
 class LogAuthenticationAttempt
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace michal\LaravelLogger\App\Models;
+namespace jeremykenedy\LaravelLogger\App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;

@@ -1,10 +1,10 @@
 <?php
 
-namespace michal\LaravelLogger\App\Http\Traits;
+namespace jeremykenedy\LaravelLogger\App\Http\Traits;
 
 use Crawler;
 use Illuminate\Support\Facades\Log;
-use michal\LaravelLogger\App\Models\Activity;
+use jeremykenedy\LaravelLogger\App\Models\Activity;
 use Validator;
 
 trait ActivityLogger
@@ -28,7 +28,7 @@ trait ActivityLogger
 
         if (Crawler::isCrawler()) {
             $userType = trans('LaravelLogger::laravel-logger.userTypes.crawler');
-            $description = $userType . ' ' . trans('LaravelLogger::laravel-logger.verbTypes.crawled') . ' ' . \Request::fullUrl();
+            $description = $userType.' '.trans('LaravelLogger::laravel-logger.verbTypes.crawled').' '.\Request::fullUrl();
         }
 
         if (!$description) {
@@ -52,20 +52,20 @@ trait ActivityLogger
                     break;
             }
 
-            $description = $verb . ' ' . \Request::path();
+            $description = $verb.' '.\Request::path();
         }
 
         $data = [
-            'description' => $description,
-            'userType' => $userType,
-            'userId' => $userId,
-            'data' => \Request::all(),
-            'route' => \Request::fullUrl(),
-            'ipAddress' => \Request::ip(),
-            'userAgent' => \Request::header('user-agent'),
-            'locale' => \Request::header('accept-language'),
-            'referer' => \Request::header('referer'),
-            'methodType' => \Request::method(),
+            'description'   => $description,
+            'userType'      => $userType,
+            'userId'        => $userId,
+            'data'          => \Request::all(),
+            'route'         => \Request::fullUrl(),
+            'ipAddress'     => \Request::ip(),
+            'userAgent'     => \Request::header('user-agent'),
+            'locale'        => \Request::header('accept-language'),
+            'referer'       => \Request::header('referer'),
+            'methodType'    => \Request::method(),
         ];
 
         // Validation Instance
@@ -73,7 +73,7 @@ trait ActivityLogger
         if ($validator->fails()) {
             $errors = self::prepareErrorMessage($validator->errors(), $data);
             if (config('LaravelLogger.logDBActivityLogFailuresToFile')) {
-                Log::error('Failed to record activity event. Failed Validation: ' . $errors);
+                Log::error('Failed to record activity event. Failed Validation: '.$errors);
             }
         } else {
             self::storeActivity($data);
@@ -90,16 +90,16 @@ trait ActivityLogger
     private static function storeActivity($data)
     {
         Activity::create([
-            'description' => $data['description'],
-            'userType' => $data['userType'],
-            'userId' => $data['userId'],
-            'data' => $data['data'],
-            'route' => $data['route'],
-            'ipAddress' => $data['ipAddress'],
-            'userAgent' => $data['userAgent'],
-            'locale' => $data['locale'],
-            'referer' => $data['referer'],
-            'methodType' => $data['methodType'],
+            'description'   => $data['description'],
+            'userType'      => $data['userType'],
+            'userId'        => $data['userId'],
+            'data'          => $data['data'],
+            'route'         => $data['route'],
+            'ipAddress'     => $data['ipAddress'],
+            'userAgent'     => $data['userAgent'],
+            'locale'        => $data['locale'],
+            'referer'       => $data['referer'],
+            'methodType'    => $data['methodType'],
         ]);
     }
 

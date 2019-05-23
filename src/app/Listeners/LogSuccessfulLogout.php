@@ -1,9 +1,9 @@
 <?php
 
-namespace michal\LaravelLogger\App\Listeners;
+namespace jeremykenedy\LaravelLogger\App\Listeners;
 
 use Illuminate\Auth\Events\Logout;
-use michal\LaravelLogger\App\Http\Traits\ActivityLogger;
+use jeremykenedy\LaravelLogger\App\Http\Traits\ActivityLogger;
 
 class LogSuccessfulLogout
 {
