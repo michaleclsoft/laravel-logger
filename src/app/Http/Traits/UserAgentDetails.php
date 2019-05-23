@@ -1,6 +1,6 @@
 <?php
 
-namespace jeremykenedy\LaravelLogger\App\Http\Traits;
+namespace michal\LaravelLogger\App\Http\Traits;
 
 trait UserAgentDetails
 {

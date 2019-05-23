@@ -1,9 +1,9 @@
 <?php
 
-namespace jeremykenedy\LaravelLogger\App\Listeners;
+namespace michal\LaravelLogger\App\Listeners;
 
 use Illuminate\Auth\Events\Failed;
-use jeremykenedy\LaravelLogger\App\Http\Traits\ActivityLogger;
+use michal\LaravelLogger\App\Http\Traits\ActivityLogger;
 
 class LogFailedLogin
 {

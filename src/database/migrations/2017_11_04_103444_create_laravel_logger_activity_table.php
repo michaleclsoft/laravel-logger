@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use jeremykenedy\LaravelLogger\App\Models\Activity;
+use michal\LaravelLogger\App\Models\Activity;
 
 class CreateLaravelLoggerActivityTable extends Migration
 {
@@ -28,6 +28,7 @@ class CreateLaravelLoggerActivityTable extends Migration
                 $table->longText('route')->nullable();
                 $table->ipAddress('ipAddress')->nullable();
                 $table->text('userAgent')->nullable();
+                $table->text('data')->nullable();
                 $table->string('locale')->nullable();
                 $table->longText('referer')->nullable();
                 $table->string('methodType')->nullable();
