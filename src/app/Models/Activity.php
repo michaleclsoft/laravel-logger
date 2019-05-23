@@ -60,6 +60,7 @@ class Activity extends Model
         'userType',
         'userId',
         'route',
+        'data',
         'ipAddress',
         'userAgent',
         'locale',
